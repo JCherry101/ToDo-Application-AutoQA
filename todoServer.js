@@ -270,6 +270,8 @@ app.patch('/todos/:id/priority', requireAuth, (req, res) => {
 
 // DELETE /todos/:id
 app.delete('/todos/:id', requireAuth, (req, res) => {
+  // DEMO: force delete to fail (remove this after demo)
+  return res.status(500).json({ error: 'Delete failed (demo bug).' });
   const todos = readTodos();
   const index = todos.findIndex((x) => x.id == req.params.id && x.userId === req.userId);
   if (index !== -1) {
