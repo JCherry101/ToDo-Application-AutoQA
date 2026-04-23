@@ -190,6 +190,11 @@ app.get('/todos/:id', requireAuth, (req, res) => {
 app.post('/todos', requireAuth, (req, res) => {
   const todos = readTodos();
   const { title, description, completed, priority } = req.body;
+
+  if (priority === undefined) {
+    return res.status(400).json({ error: 'Priority is required.' });
+  }
+
   if (priority !== undefined && !VALID_PRIORITIES.includes(priority)) {
     return res.status(400).json({ error: 'Invalid priority. Must be low, medium, or high.' });
   }
