@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon todoServer.js"
+    "start": "node todoServer.js",
+    "dev": "node todoServer.js",
+    "watch": "nodemon todoServer.js"
   },
   "keywords": [],
   "author": "",
